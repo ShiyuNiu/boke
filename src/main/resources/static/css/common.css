@@ -1,0 +1,12 @@
+.main-body {
+}
+
+.color-fire {
+  color: #fe6601;
+}
+
+.search-input {
+  border: 1px solid #CCCCCC;
+  background: #fff url(../img/sicon.png) no-repeat 0.5em 0.5em;
+  line-height: 2em;
+}

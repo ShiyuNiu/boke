@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{header :: common_header(~{::title}, ~{::link}, ~{})}">
+  <meta charset="UTF-8">
+  <title>HOME</title>
+  <link rel="stylesheet" th:href="@{/css/web/index.css}"/>
+</head>
+<body>
+  <div th:replace="~{header :: header}"></div>
+  <div class="container main-body">
+    <div class="blank"></div>
+    <div class="row">
+      <div class="product">
+        <div class="col-md-9 product-left">
+          <div class="row product-title"><span>江南名都</span></div>
+          <div class="row product-details">
+            <div class="col-md-4 product-info">
+              <div class="product-info-0">
+                <p>原价：<span>￥7000元/平方米</span></p>
+                <p>优惠：<span class="color-fire">￥200元/平方米</span></p>
+              </div>
+              <div class="product-info-1">
+                <p>关注人数：<span class="color-fire">100</span></p>
+                <p style="font-weight: 300;">数量有限，登记要快哦！</p>
+              </div>
+              <div class="product-info-2">
+                <p class="color-fire">热线电话：<span>110123i01280</span></p>
+                <p>发布时间：<span class="color-fire">2019-29-33</span></p>
+              </div>
+              <div class="product-info-3">
+                <p class="color-fire">热线电话：<span>110123i01280</span></p>
+                <p>发布时间：<span>2019-29-33</span></p>
+              </div>
+            </div>
+            <div class="col-md-8 product-index-img">
+              <img src="#" th:src="@{/img/test.jpg}"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 product-right">
+          <div class="product-right-top">
+            预约看房
+          </div>
+          <div class="product-right-bottom">
+          <form class="form-inline">
+            <div class="form-group">
+              <label for="username">您的姓名：</label>
+              <input type="text" id="username" style="width: 100%" class="form-control" placeholder=""/>
+            </div>
+            <div class="form-group">
+              <label for="phone">您的手机：</label>
+              <input type="text" id="phone" style="width: 100%;" class="form-control" placeholder=""/>
+            </div>
+            <div class="form-group" style="width: 100%;">
+              <label for="message">您的留言：</label><br/>
+              <textarea id="message" style="width: 100%;" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="form-group" style="text-align: center; padding-top: 1em; width: 100%">
+              <button class="btn btn-primary col-md-12">确认提交</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

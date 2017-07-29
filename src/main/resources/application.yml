@@ -1,7 +1,6 @@
 spring:
   thymeleaf:
     cache: false
-
 datasource:
   driver-class-name: org.sqlite.JDBC
   url: jdbc:sqlite:database/boke.db
