@@ -21,6 +21,8 @@ public interface PicturesMapper {
 
     @Select({"SELECT", BASE_COLUMNS, "FROM pictures"})
     List<Pictures> listAll();
+
     @Select({"SELECT", BASE_COLUMNS, "FROM pictures WHERE id IN (SELECT id FROM product_pictures WHERE product_id=#{id})"})
     List<Pictures> listByProductId(int id);
+
 }

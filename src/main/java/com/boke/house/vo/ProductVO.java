@@ -1,8 +1,10 @@
 package com.boke.house.vo;
 
+import com.boke.house.entity.Pictures;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class ProductVO {
@@ -33,4 +35,9 @@ public class ProductVO {
     private String developer;
     private Double greenRate;
     private Double volumeRate;
+    private List<Pictures> pictures;
+
+    public void setPictures(List<Pictures> pictures) {
+        this.pictures = pictures;
+    }
 }

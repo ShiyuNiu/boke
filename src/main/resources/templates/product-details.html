@@ -14,14 +14,13 @@
       <div class="col-md-5 product-base-info-img">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          </ol>
+          <!--<ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" th:data-slide-to="0" class="active"></li>
+          </ol>-->
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
-            <div class="item active" style="height: 100%;">
-              <img src="#" th:src="@{/img/test.jpg}"/>
+            <div class="item active" th:if="${pic.type == 0}" th:class="${picStat.index == 0} ? 'item active' : 'item'" style="height: 100%;" th:each="pic, picStat : ${product.pictures}">
+              <img src="#" th:src="${pic.path}"/>
               <div class="carousel-caption">
                 <!-- some words to show -->
               </div>
