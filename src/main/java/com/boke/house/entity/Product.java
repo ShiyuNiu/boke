@@ -16,4 +16,10 @@ public class Product {
     private Integer type;
     private String summary;
     private String description;
+    private Double area;
+    private Date delivery;
+    private Date opening;
+    private String developer;
+    private Double greenRate;
+    private Double volumeRate;
 }

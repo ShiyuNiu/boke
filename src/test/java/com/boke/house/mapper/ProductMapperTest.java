@@ -28,6 +28,12 @@ public class ProductMapperTest {
         product.setType(1);
         product.setSummary("在这里");
         product.setDescription("test description");
+        product.setArea(3021923.00);
+        product.setDelivery(new Date());
+        product.setOpening(new Date());
+        product.setDeveloper("xxx开发商");
+        product.setGreenRate(23.00);
+        product.setVolumeRate(10.00);
         productMapper.save(product);
         System.out.println(product);
     }

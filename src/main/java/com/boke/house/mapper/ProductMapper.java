@@ -10,9 +10,12 @@ import java.util.List;
 @Component
 @Mapper
 public interface ProductMapper {
-    String BASE_COLUMNS = "id, name, city, address, price, discount, release_time, type, summary, description";
-    String INSERT_COLUMNS = "name, city, address, price, discount, release_time, type, summary, description";
-    String INSERT_COLUMNS_FILED = "#{name}, #{city}, #{address}, #{price}, #{discount}, #{releaseTime}, #{type}, #{summary}, #{description}";
+    String BASE_COLUMNS = "id, name, city, address, price, discount, release_time, type, summary, description, area, " +
+            "delivery, opening, developer, green_rate, volume_rate";
+    String INSERT_COLUMNS = "name, city, address, price, discount, release_time, type, summary, description, area, " +
+            "delivery, opening, developer, green_rate, volume_rate";
+    String INSERT_COLUMNS_FILED = "#{name}, #{city}, #{address}, #{price}, #{discount}, #{releaseTime}, #{type}, " +
+            "#{summary}, #{description}, #{area}, #{delivery}, #{opening}, #{developer}, #{greenRate}, #{volumeRate}";
 
     @Insert({"INSERT INTO product (", INSERT_COLUMNS, ") VALUES (", INSERT_COLUMNS_FILED, ")"})
     @Options(useGeneratedKeys = true)
@@ -22,6 +25,10 @@ public interface ProductMapper {
     int delete(int id);
 
     @Select({"SELECT", BASE_COLUMNS, "FROM product"})
-    @Results(@Result(column = "release_time", property = "releaseTime", typeHandler = MyDateTypeHandler.class))
+    @Results(value = {
+            @Result(column = "release_time", property = "releaseTime", typeHandler = MyDateTypeHandler.class),
+            @Result(column = "delivery", property = "delivery", typeHandler = MyDateTypeHandler.class),
+            @Result(column = "opening", property = "opening", typeHandler = MyDateTypeHandler.class)
+    })
     List<Product> listAll();
 }
