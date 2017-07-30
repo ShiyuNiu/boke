@@ -31,4 +31,12 @@ public interface ProductMapper {
             @Result(column = "opening", property = "opening", typeHandler = MyDateTypeHandler.class)
     })
     List<Product> listAll();
+
+    @Select({"SELECT", BASE_COLUMNS, "FROM product WHERE id=#{productId}"})
+    @Results(value = {
+            @Result(column = "release_time", property = "releaseTime", typeHandler = MyDateTypeHandler.class),
+            @Result(column = "delivery", property = "delivery", typeHandler = MyDateTypeHandler.class),
+            @Result(column = "opening", property = "opening", typeHandler = MyDateTypeHandler.class)
+    })
+    Product getProductById(int productId);
 }

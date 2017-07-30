@@ -50,4 +50,10 @@ public class ProductMapperTest {
     public void delete() {
         productMapper.delete(2);
     }
+
+    @Test
+    public void getById() {
+        Product pr = productMapper.getProductById(1);
+        System.out.println(pr);
+    }
 }

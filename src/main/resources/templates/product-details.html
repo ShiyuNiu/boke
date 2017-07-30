@@ -2,13 +2,13 @@
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{header :: common_header(~{::title}, ~{::link}, ~{})}">
   <meta charset="UTF-8">
-  <title>HOME</title>
+  <title th:text="'楼盘详情|' + ${product.name}"></title>
   <link rel="stylesheet" th:href="@{/css/web/product-details.css}"/>
 </head>
 <body>
 <div th:replace="~{header :: header}"></div>
 <div class="container">
-  <h1 class="row">吉祥澜山</h1>
+  <h1 class="row" th:text="${product.name}">吉祥澜山</h1>
   <div class="row">
     <div class="product-base-info">
       <div class="col-md-5 product-base-info-img">
@@ -38,12 +38,11 @@
           </a>
         </div>
 
-
       </div>
       <div class="col-md-7 product-base-info-text">
-        <div class="row product-base-info-name"><span>吉翔阑珊</span></div>
-        <div class="row product-base-info-price">参考均价 <span>12000</span></div>
-        <div class="row product-base-info-discount">优惠折扣 <span class="color-fire">成功预约客户可享超值团购优惠，当天下定更有好礼相送！</span></div>
+        <div class="row product-base-info-name"><span th:text="${product.name}">吉翔阑珊</span></div>
+        <div class="row product-base-info-price">参考均价 <span th:text="${product.price}">12000</span></div>
+        <div class="row product-base-info-discount">优惠折扣 <span class="color-fire" th:text="${product.discount}">成功预约客户可享超值团购优惠，当天下定更有好礼相送！</span></div>
         <div class="blank row"></div>
         <div class="row product-base-info-reservation">
           <div class="col-md-12 basic-tel">
@@ -60,24 +59,24 @@
           <table class="table">
             <tr>
               <td>楼盘地址</td>
-              <td>xxxxxxxxxxxxx</td>
+              <td th:text="${product.address}">xxxxxxxxxxxxx</td>
             </tr>
             <tr></tr>
             <tr>
               <td>户型面积</td>
-              <td>90-80-100</td>
+              <td th:text="${product.area}">90-80-100</td>
             </tr>
             <tr>
               <td>产权年限</td>
               <td>70</td>
               <td style="">建筑装修</td>
-              <td>毛胚</td>
+              <td th:text="${product.typeStr}">毛胚</td>
             </tr>
             <tr>
               <td>开盘时间</td>
-              <td>2017-09-09</td>
+              <td th:text="${#dates.format(product.opening, 'yyyy-MM-dd')}">2017-09-09</td>
               <td>交房时间</td>
-              <td>2019.02.01</td>
+              <td th:text="${#dates.format(product.delivery, 'yyyy-MM-dd')}">2019.02.01</td>
             </tr>
           </table>
         </div>
@@ -124,47 +123,47 @@
       <table class="table">
         <tr>
           <th>开盘时间</th>
-          <td>2017-07-07</td>
+          <td th:text="${#dates.format(product.opening, 'yyyy-MM-dd')}">2017-09-09</td>
           <th>入住时间</th>
-          <td>2019-04-30</td>
+          <td th:text="${#dates.format(product.delivery, 'yyyy-MM-dd')}">2019.02.01</td>
           <th>建筑类型</th>
-          <td>框架剪力墙</td>
+          <td>暂无</td>
         </tr>
         <tr>
           <th>物业类型</th>
-          <td>住宅</td>
-          <th>建筑装修</th>
+          <td>暂无</td>
+          <th th:text="${product.typeStr}">建筑装修</th>
           <td>毛胚</td>
           <th>绿化率</th>
-          <td>30.5%</td>
+          <td><span th:text="${product.greenRate}">3.1</span>%</td>
         </tr>
         <tr>
           <th>容积率</th>
-          <td>1.5</td>
+          <td><span th:text="${product.volumeRate}">1.5</span>%</td>
           <th>物业费</th>
-          <td>2.3</td>
+          <td>暂无</td>
           <th>规划户口</th>
-          <td>483</td>
+          <td>暂无</td>
         </tr>
         <tr>
           <th>建筑面积</th>
-          <td>68000</td>
+          <td>暂无</td>
           <th>占地面积</th>
-          <td>32859</td>
+          <td th:text="${product.area}">68000</td>
           <th>预售证</th>
-          <td>&nbsp;</td>
+          <td>暂无</td>
         </tr>
         <tr>
           <th>交通情况</th>
-          <td>K2, K30, K15</td>
+          <td>暂无</td>
         </tr>
         <tr>
           <th>楼盘地址</th>
-          <td>嘉兴海宁碧海路西侧</td>
+          <td th:text="${product.address}">嘉兴海宁碧海路西侧</td>
         </tr>
         <tr>
           <th>开发商</th>
-          <td>吉翔置地有限公司</td>
+          <td th:text="${product.developer}">吉翔置地有限公司</td>
         </tr>
         <tr>
           <th>物业公司</th>
@@ -183,7 +182,7 @@
   </div>
   <div class="row">
     <div class="">
-      <p>
+      <p th:text="${product.description}">
         吉翔·澜山为吉翔置地集团有限公司开发，项目位于海宁市碧海路西侧，横山路南侧（东山大桥边），西靠长山河，近邻海宁人民广场。总用地面积约49.3亩，规划总建筑面积约6.4万平方米，由10幢排屋和9幢多层组成，呈现城区少有的新中式墅区。
         项目可享受长山河约1公里水岸线带来的河岸风景，未来住户们的休闲生活更丰富；东、西两山的自然、人文景观，如智标塔、紫微阁等，于园区内可尽数观赏。园区内部设有游乐健身场所以及各类景观小品等，营造健康舒适的生活环境。
         吉翔·澜山为吉翔置地集团有限公司开发，项目位于海宁市碧海路西侧，横山路南侧（东山大桥边），西靠长山河，近邻海宁人民广场。总用地面积约49.3亩，规划总建筑面积约6.4万平方米，由10幢排屋和9幢多层组成，呈现城区少有的新中式墅区。
