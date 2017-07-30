@@ -9,15 +9,15 @@
   <div th:replace="~{header :: header}"></div>
   <div class="container main-body">
     <div class="blank"></div>
-    <div class="row">
+    <div class="row product-container" th:each="product : ${products}">
       <div class="product">
         <div class="col-md-9 product-left">
-          <div class="row product-title"><span>江南名都</span></div>
+          <div class="row product-title"><span th:text="${product.name}">江南名都</span></div>
           <div class="row product-details">
             <div class="col-md-4 product-info">
               <div class="product-info-0">
-                <p>原价：<span>￥7000元/平方米</span></p>
-                <p>优惠：<span class="color-fire">￥200元/平方米</span></p>
+                <p>原价：￥<span th:text="${product.price}">7000</span>元/平方米</p>
+                <p>优惠：￥<span class="color-fire" th:text="${product.discount}">200</span>元/平方米</p>
               </div>
               <div class="product-info-1">
                 <p>关注人数：<span class="color-fire">100</span></p>
@@ -25,15 +25,15 @@
               </div>
               <div class="product-info-2">
                 <p class="color-fire">热线电话：<span>110123i01280</span></p>
-                <p>发布时间：<span class="color-fire">2019-29-33</span></p>
+                <p>发布时间：<span class="color-fire" th:text="${releaseTime}">2019-29-33</span></p>
               </div>
               <div class="product-info-3">
                 <p class="color-fire">热线电话：<span>110123i01280</span></p>
                 <p>发布时间：<span>2019-29-33</span></p>
               </div>
             </div>
-            <div class="col-md-8 product-index-img">
-              <img src="#" th:src="@{/img/test.jpg}"/>
+            <div class="col-md-8 product-index-img" th:each="pic : ${product.pictures}">
+              <a th:href="@{/product/{productId}(productId=${product.id})}"><img src="#" th:if="${pic.weight == 0}" th:src="${pic.path}"/></a>
             </div>
           </div>
         </div>

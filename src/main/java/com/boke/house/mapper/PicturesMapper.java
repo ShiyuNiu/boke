@@ -9,10 +9,11 @@ import java.util.List;
 @Component
 @Mapper
 public interface PicturesMapper {
-    String INSERT_COLUMNS = "path, type";
-    String BASE_COLUMNS  = "id, path, type";
+    String INSERT_COLUMNS = "path, type, weight";
+    String INSERT_COLUMNS_FIELD = "#{path}, #{type}, #{weight}";
+    String BASE_COLUMNS  = "id, path, type, weight";
 
-    @Insert({"INSERT INTO pictures (", INSERT_COLUMNS, ") VALUES", "(#{path}, #{type})"})
+    @Insert({"INSERT INTO pictures (", INSERT_COLUMNS, ") VALUES", "(", INSERT_COLUMNS_FIELD, ")"})
     @Options(useGeneratedKeys = true)
     int save(Pictures pictures);
 

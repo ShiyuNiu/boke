@@ -7,4 +7,5 @@ public class Pictures {
     private Integer id;
     private String path;
     private Integer type;
+    private Integer weight;
 }
