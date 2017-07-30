@@ -29,7 +29,7 @@
 </head>
 <body>
 <div th:fragment="header" id="header">
-  <nav class="navbar navbar-default navbar-static-top">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -43,7 +43,7 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">首页</a></li>
+          <li class="active"><a href="#" th:href="@{/index}">首页</a></li>
           <li><a href="#">公司招聘</a></li>
           <li><a href="#">联系我们</a></li>
         </ul>

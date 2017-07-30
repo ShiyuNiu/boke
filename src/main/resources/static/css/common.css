@@ -1,3 +1,11 @@
+body {
+  padding-top: 70px;
+}
+
+.blank {
+  margin-top: 1em;
+}
+
 .main-body {
 }
 
@@ -9,4 +17,33 @@
   border: 1px solid #CCCCCC;
   background: #fff url(../img/sicon.png) no-repeat 0.5em 0.5em;
   line-height: 2em;
+}
+
+.lp-icons {
+  display: inline-block;
+  font-size: 0;
+  overflow: hidden;
+  vertical-align: middle;
+  background: url(../img/everything.png) no-repeat;
+}
+
+.lp-icons-tuan {
+  width: 59px;
+  height: 58px;
+  margin-right: 20px;
+  overflow: hidden;
+  text-indent: -99999999px;
+  background-position: -213px -164px;
+}
+
+.house-ico {
+  background: url(../img/everything.png) no-repeat -76px -227px;
+}
+
+.book-ico {
+  background: url(../img/everything.png) no-repeat -112px -227px;
+}
+
+.point-ico {
+  background: url(../img/everything.png) no-repeat -182px -227px;
 }
